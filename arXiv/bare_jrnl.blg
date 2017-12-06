@@ -1,0 +1,73 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: bare_jrnl.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: IEEEabrv.bib
+Database file #2: barebiblio.bib.bib
+Warning--I didn't find a database entry for "qadir2015novel"
+Warning--I didn't find a database entry for "yuan2015beyond"
+Warning--I didn't find a database entry for "anegekuh2015content"
+Warning--I didn't find a database entry for "janowski2015accuracy"
+Warning--I didn't find a database entry for "scott2016personality"
+Warning--I didn't find a database entry for "hameed2016decision"
+-- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in perkiselectronic
+Warning--empty journal in itut2012P.1401
+Warning--empty journal in itut2015G.1071
+Warning--empty journal in itut2012G.1070
+Warning--empty journal in rec2003g
+Warning--empty journal in itut2012P.1201
+Warning--empty journal in itut2012P.1201.2
+Warning--empty journal in fliegel2014qualinet
+Warning--empty journal in itu913subjective
+
+Done.
+You've used 51 entries,
+            4024 wiz_defined-function locations,
+            1416 strings with 23196 characters,
+and the built_in function-call counts, 22623 in all, are:
+= -- 1722
+> -- 520
+< -- 28
++ -- 248
+- -- 124
+* -- 1007
+:= -- 3982
+add.period$ -- 112
+call.type$ -- 51
+change.case$ -- 46
+chr.to.int$ -- 0
+cite$ -- 60
+duplicate$ -- 1942
+empty$ -- 2276
+format.name$ -- 152
+if$ -- 5010
+int.to.chr$ -- 0
+int.to.str$ -- 51
+missing$ -- 395
+newline$ -- 188
+num.names$ -- 51
+pop$ -- 1037
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1789
+stack$ -- 0
+substring$ -- 46
+swap$ -- 1124
+text.length$ -- 28
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 51
+warning$ -- 9
+while$ -- 51
+width$ -- 53
+write$ -- 462
+(There were 15 warnings)

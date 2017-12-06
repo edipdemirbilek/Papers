@@ -361,7 +361,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Machine Learning Based Perceived Quality Modeling: Taking advantage of correlated data y}
+\title{Perceived Audiovisual Quality Modelling based on Decison Trees, Genetic Programming and Neural Networks}
 
 %
 %
@@ -406,8 +406,8 @@ Jean-Charles Gr{\'e}goire
 
 
 % The paper headers
-\markboth{IEEE Transactions on Multimedia~2017}%
-{Author \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+% \markboth{IEEE Transactions on Multimedia~2017}%
+% {Author \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 %
@@ -463,7 +463,6 @@ Perceived quality, audiovisual dataset, bitstream model, machine learning.
 
 %\IEEEpeerreviewmaketitle
 
-\vspace{-0.2cm}
 \section{Introduction}
 \label{sec:intro}
 
@@ -472,7 +471,6 @@ Perceived quality, audiovisual dataset, bitstream model, machine learning.
     \includegraphics[width=0.8\textwidth]{./QoEFeedback.png}
     \caption{Sample Architecture: Perceived quality modeling and perceived quality based multimedia quality adaptation for real-time communications.}
     \label{fig:QoEFeedback}
-    \vspace{-0.3cm}
 \end{figure*}
 
 One of the standard quality assessment methods of multimedia communications is called Quality of Service (QoS) and is based on the measure of parameters such as throughput, delay, jitter and packet loss rate \cite{perkiselectronic}. When analyzing the characteristics of a real-time multimedia communication, it is necessary to have a clear understanding of changes in these parameters. This is of particular importance in environments where the multimedia streams are traversing resources that have limited and fluctuating bandwidth capacity, such as wireless networks \cite{hansen2013assessing}.
@@ -481,15 +479,14 @@ In order to cope with ever-changing situations during a multi-party multimedia i
 
 There has been significant research about the QoS feedback control in both application and network layers and various management tools and approaches have been developed \cite{bordetsky2001feedback}. However, in recent years, the convergence of the digital media industry and the information and communications technology (ICT) industry has led to a paradigm shift away from QoS towards perceived multimedia presentation quality \cite{perkiselectronic}.
 
-In perceived quality based multimedia adaptation, although a better QoS usually provides a higher presentation quality, there are cases where QoS trade-offs are needed to maximize the overall perceived quality \cite{hansen2013assessing}. These trade-offs could be made statically and dynamically for a real-time communication \cite{qadir2015novel}.
+In perceived quality based multimedia adaptation, although a better QoS usually provides a higher presentation quality, there are cases where QoS trade-offs are needed to maximize the overall perceived quality \cite{hansen2013assessing}. These trade-offs could be made statically and dynamically for a real-time communication.
 
-Figure \ref{fig:QoEFeedback} depicts a sample architecture of a multimedia communication system where QoS parameters are measured at regular intervals and reported for monitoring as well as for parameter tuning to the transmission endpoint along with the perceived quality predictions. Here, audio and video data streams are generated and encoded on the transmission endpoint and then forwarded to the network. On the receiver endpoint, the data stream is first decoded at the channel level and then at the media level, and finally presented to the end-user in conventional ways. While this process takes place, in a closed loop, these measured QoS parameter values and the quality predictions are evaluated by the transmission rate control, and media and channel encoding parameters modified to improve the user experience. A similar perceived quality aware architecture can also be found in \cite{yuan2015beyond}. Service Providers can enhance their service monitoring and reporting processes dramatically by exploiting such quality predictions. This sample architecture assumes that perceived quality modeling is already implemented properly and this is the main concern of this paper.
+Figure \ref{fig:QoEFeedback} depicts a sample architecture of a multimedia communication system where QoS parameters are measured at regular intervals and reported for monitoring as well as for parameter tuning to the transmission endpoint along with the perceived quality predictions. Here, audio and video data streams are generated and encoded on the transmission endpoint and then forwarded to the network. On the receiver endpoint, the data stream is first decoded at the channel level and then at the media level, and finally presented to the end-user in conventional ways. While this process takes place, in a closed loop, these measured QoS parameter values and the quality predictions are evaluated by the transmission rate control, and media and channel encoding parameters modified to improve the user experience. Service Providers can enhance their service monitoring and reporting processes dramatically by exploiting such quality predictions. This sample architecture assumes that perceived quality modeling is already implemented properly and this is the main concern of this paper.
 
 The classic approach to audiovisual quality modeling is to develop functions to predict audio and video quality independently and then combine them using another function to predict the overall audiovisual perceived quality. The alternative way is to build models that predict the audiovisual quality directly without any intermediate functions. Machine learning based modeling approaches have been successfully applied to estimating perceived quality \cite{aroussi2014survey} \cite{maki2013reduced}. In this research, we have taken the second approach and have built machine learning based models that predict the overall audiovisual quality in one single function.
 
 The rest of this paper is organized as follows. In sections \ref{sec:quality}, \ref{sec:Standardized} and \ref{sec:ml}, we present some background information on various aspects of the audiovisual quality modeling and the machine learning algorithms we have used. The bitstream version of the INRS audiovisual quality dataset is introduced in Section \ref{sec:dataset}. Reduced-reference bitstream audiovisual quality prediction models are presented in details in Section \ref{sec:bitstreammodels}. We sum up the work in the conclusion section.
 
-\vspace{-0.4cm}
 \section{Perceived Quality Modelling}
 \label{sec:quality}
 
@@ -510,9 +507,8 @@ Collecting the opinion of a set of users via subjective experiments is one of th
 
 Predicting the perceived quality from objective measurements provides only partial solutions. However, these partial solutions do provide insight on how perceived quality is affected by network QoS parameters. It is possible to correlate the QoS parameters with the measured perceived quality metrics and build an effective perceived quality-aware QoS model \cite{rifai2011brief}.
 
-In the following sections, we will revisit this topic in more detail when discussing the standardized perceived quality estimation models. As we see from published approaches, quality assessment systems that exploit machine learning paradigms very promisingly attain a high degree of prediction accuracy \cite{aroussi2014survey} \cite{anegekuh2015content}. Machine learning based approaches provide a theoretical and methodological framework to quantify the relationship between perceived quality and network QoS.
+In the following sections, we will revisit this topic in more detail when discussing the standardized perceived quality estimation models. As we see from published approaches, quality assessment systems that exploit machine learning paradigms very promisingly attain a high degree of prediction accuracy \cite{aroussi2014survey}. Machine learning based approaches provide a theoretical and methodological framework to quantify the relationship between perceived quality and network QoS.
 
-\vspace{-0.2cm}
 \subsection{Quality Models}
 \label{subsec:QualityModels}
 
@@ -539,7 +535,6 @@ Quality models can also be grouped relying on the type of additional information
 
 One important aspect of perceived quality modeling is that an objective model is not expected to predict an average subjective opinion more accurately than an average test subject. The uncertainty of the subjective votes is calculated via standard deviation and its corresponding Confidence Interval (CI) \cite{itut2012P.1401}.
 
-\vspace{-0.3cm}
 \subsection{Statistical Metrics}
 \label{subsec:Metrics}
 
@@ -551,7 +546,6 @@ The perceived quality predictions have to have consistently low error margins ov
 
 In the literature, there are two commonly used metrics for computing the linearity of a model: the Spearman rank coefficient and the Pearson correlation coefficient. The Pearson correlation coefficient is used whenever the sampled data has a near-normal distribution. In other cases, the Spearman rank coefficient is utilized to qualify the linearity between the predicted and the actual subjective quality scores \cite{garcia2014parametric}. ITU-T P.1401 additionally recommends to compute the significance of the difference between correlation coefficients using the  Fisher-z transformation which is determined for each comparison and evaluated against the 95\% t-Student value.
 
-\vspace{-0.2cm}
 \subsection{Cross Validation}
 \label{subsec:CrossVal}
 
@@ -561,7 +555,6 @@ In the K-fold approach, the available data is split into K mutually exclusive su
 
 In the leave-one-out cross-validation, K is equaled to the number of data points in the dataset and in each iteration, one data point is used to measure the accuracy of the model while all other data points are used to train the model \cite{kohavi1995study}.
 
-\vspace{-0.2cm}
 \section{Standardized Audiovisual Quality Prediction Models}
 \label{sec:Standardized}
 
@@ -576,7 +569,6 @@ The ITU-T P.1201 \cite{itut2012P.1201} model is intended for estimating the audi
 
 The ITU-T P.1201 model recommended for higher resolution applications \cite{itut2012P.1201.2} is a combination of the quality impairment based models where the quality model is based on the audio and video quality terms, and the impairment model is based on the audio and video impairment factor terms linked to the degree of compression and the transmission errors. The overall model takes the following mathematical form:
 
-\vspace{-0.2cm}
 \begin{equation}
 \label{eq:p12012}
 Q_{AV} = \omega_{1} .Q_{AV} + \omega_{2} .IF_{AV}
@@ -591,7 +583,6 @@ ITU-T Rec. P.1201, G.1070, and  G.1071 have achieved high prediction accuracy ag
 In standardized models,  audio, video, and audiovisual predictions are performed by their respective functions whose output is then forwarded to the audiovisual function to predict overall audiovisual quality. An alternative approach is to implement the audiovisual function in a way that would not require intermediate predictions for audio and video quality and still be able to capture all those complex interrelations between influence factors. Machine learning based techniques have been successfully applied in implementing these functions \cite{maki2013reduced} \cite{gastaldo2013supporting}. With machine learning techniques, we can with less effort build prediction models that fit specific use cases and achieve high accuracy. Historically, Neural Networks (NN) based approaches have been used extensively. 
 In this research, in addition to the Deep Learning (DL) models, we evaluate Decision Tree (DT) based ensemble methods and Genetic Programming (GP) to implement the audiovisual quality function to predict the perceived quality directly from the parameters extracted from the application and network layers. The machine learning based models capture the complex relationships between influence factors no matter if the dataset is generated for IPTV services or video-telephony in mind.
 
-\vspace{-0.3cm}
 \section{Machine Learning Algorithms}
 \label{sec:ml}
 
@@ -610,7 +601,6 @@ Rather than searching for a single superior model, researchers have noticed that
 
 When we compare the Decision Trees based models with Bagging methods, each tree is constructed with a random variation of the training data set. The prediction is accomplished by the simple majority vote to improve stability and accuracy. This approach greatly reduces the variance as well as helping to avoid over-fitting issues, but it slightly increases the bias. Although it is usually applied to Decision Trees, it can be used with any type of method as well \cite{domingos2012few} \cite{liaw2002classification}.
 
-\vspace{-0.3cm}
 \subsection{Symbolic Regression and Genetic Programming}
 \label{section:GeneticProgramming}
 Symbolic regression techniques aim to identify an underlying mathematical expression that best fits a dataset. It consists of simultaneously finding both the form of equations and their parameters. Symbolic Regression starts by forming an initial expression by randomly combining mathematical building blocks and then continue forming new equations by recombining previous equations using Genetic Programming (GP) \cite{schmidt2010symbolic}.
@@ -627,7 +617,6 @@ Both full and grow methods limit the maximum depth of the initial individuals ge
 
 GP selects the individuals probabilistically based on their fitness and then applies the genetic operations to them. This process causes better individuals to have likely more child programs than inferior individuals. Two common individual selection methods in GP are tournament selection and fitness proportionate selection \cite{poli2008field}.
 
-\vspace{-0.3cm}
 \subsection{Deep Learning}
 
 Deep Learning dates back to the 1940s and has been re-branded many times, reflecting the influence of different researchers and newer perspectives. it has only recently become “Deep Learning” \cite{bengio2015deep}.
@@ -640,7 +629,6 @@ In the back propagation approach, during the forward phase, the input signal is 
 
 In Section \ref{sec:bitstreammodels} we will look into the details of these algorithms once again but this time from an implementation point of view and mention their specific configurations targeting regression usage. However, before that, we need to look at the INRS audiovisual quality dataset to see which information is available to us when attempting to build perceived quality estimation models.
 
-\vspace{-0.2cm}
 \newcommand{\frigginfigurewidth}{2.4in}
 \section{The INRS Audiovisual Quality Dataset}
 \label{sec:dataset}
@@ -666,7 +654,7 @@ PLR (\%) & 0, 0.1, 0.5, 1, 5 & 0, 0.1, 0.5, 1, 5 \\ \hline
 
 The original 42 seconds long audiovisual raw source was encoded with the H.264/AVC video codec and the AMR-WB audio codec and then multiplexed into a 3gp container with the GStreamer open source multimedia framework \cite{teamgstreamer}.  Video streams were encoded with the constrained-baseline profile at a 720p progressive video resolution. Audio encoding settings were kept the same -mono channel, 16 kHz sample rate, and 24Kbps bit rate- for all audiovisual sequences. The multimedia framework, GStreamer, uses only the jitter buffer mechanism to smooth out the packet flow and has no forward error correction strategy. Hence in our dataset we assume that the packet loss figures reported are the residual packet losses.
 
-An emulated network was used to transmit and record the audiovisual sequences. The audio and videos streams were captured with our GStreamer based custom developed software which enabled us to gather detailed RTCP statistics and report the exact network packet loss values for video and audio streams separately. This software is freely available to public access \cite{demirbilek2016githubGStreamertestbed} and detailed information on the technical implementation of this testbed and how each of these configuration settings is implemented is presented in \cite{demirbilek2016multimedia}. The Netem network emulator was deployed to produce network packet loss conditions. Network packet loss was only activated after the first second of the audio and video transmission. This allowed us to be sure that communications were initiated, especially for the video stream. get more realistic results. A custom video player was developed to collect the subjective scores \cite{demirbilek2016githubplayer}. Thirty observers have rated the overall audiovisual quality on the Absolute Category Rating (ACR) 5-level quality scale in a controlled environment. It is important to note that the required number of observers as well as post-processing of scores submitted by each observer used in this research are based on the latest ITU-T Recommendation P.913 \cite{itu913subjective}. However, evolution of the contribution of subjective assessment factors such as subjective bias, subject inaccuracy, stimulus scoring, personal and cultural traits on perception and consequently how subjective experiments should be conducted is a matter of ongoing research \cite{janowski2015accuracy} \cite{scott2016personality}.
+An emulated network was used to transmit and record the audiovisual sequences. The audio and videos streams were captured with our GStreamer based custom developed software which enabled us to gather detailed RTCP statistics and report the exact network packet loss values for video and audio streams separately. This software is freely available to public access \cite{demirbilek2016githubGStreamertestbed} and detailed information on the technical implementation of this testbed and how each of these configuration settings is implemented is presented in \cite{demirbilek2016multimedia}. The Netem network emulator was deployed to produce network packet loss conditions. Network packet loss was only activated after the first second of the audio and video transmission. This allowed us to be sure that communications were initiated, especially for the video stream. get more realistic results. A custom video player was developed to collect the subjective scores \cite{demirbilek2016githubplayer}. Thirty observers have rated the overall audiovisual quality on the Absolute Category Rating (ACR) 5-level quality scale in a controlled environment. It is important to note that the required number of observers as well as post-processing of scores submitted by each observer used in this research are based on the latest ITU-T Recommendation P.913 \cite{itu913subjective}. However, evolution of the contribution of subjective assessment factors such as subjective bias, subject inaccuracy, stimulus scoring, personal and cultural traits on perception and consequently how subjective experiments should be conducted is a matter of ongoing research.
 
 From our earlier work on the parametric models \cite{demirbilek2017parametricmodels}, we know that the change in the network packet loss rate has dramatic effects on the perceived quality. Moreover, video frame rate and quantization parameter have also a moderate influence on MOS value and model behavior. However, in the parametric version of the dataset, the values of these parameters are reported globally, for each file. We would expect that incorporating the influence of these parameters per video I and P frames, and per audio frames would improve the accuracy of the machine learning-based perceived quality prediction models. In the rest of this section, we will discuss the bitstream version of the INRS audiovisual quality dataset that we have created in order to gather packet loss rate and bit rate changes on the individual or group of frames. 
 
@@ -700,14 +688,12 @@ pFrame Count Diff & aFrame Count Diff \\ \hline
 \multicolumn{2}{|l|}{S0 pFrame Mean Diff ... S30 pFrame Mean Diff } \\ \hline
 \multicolumn{2}{|l|}{S0 aFrame Count Diff ... S30 aFrame Count Diff } \\ \hline
 \end{tabular}
-\vspace{-0.3cm}
 \end{table}
 
 The models that use the bitstream version of the INRS audiovisual quality dataset would qualify as Reduced-Reference quality models since we have used the limited amount of information from original video files when calculating the effect of the packet loss on the audio frames and video I and P frames. The bitstream version of the INRS audiovisual quality dataset is publicly available at \cite{demirbilek2016githubINRSdataset}. More detailed information on the INRS audiovisual quality dataset regarding the selected video sequence, test methodology and comparison to the other publicly available datasets is given in \cite{demirbilek2017parametricmodels} and \cite{demirbilek2016inrsquality}. 
 
 As recent developments show \cite{maki2013reduced}  \cite{raake2011ip} \cite{garcia2014parametric} \cite{belmudez2015audiovisual} \cite{gastaldo2013supporting} \cite{goudarzi2010audiovisual}, No-Reference and Reduced-Reference parametric models achieve high accuracy in estimating perceived quality with limited resources. In the next Section, we try to build and analyze similar models by estimating the audiovisual quality based on the INRS audiovisual quality dataset directly using Random Forest, Bagging, Genetic Programming and Deep Learning machine learning methods.
 
-\vspace{-0.2cm}
 \section{Reduced-Reference Bitstream Audiovisual Quality Prediction Models}
 \label{sec:bitstreammodels}
 
@@ -715,10 +701,9 @@ In earlier research \cite{demirbilek2017parametricmodels}, we have used the INRS
 
 Random Forests and Bagging ensemble models are based on decision trees. Genetic Programming models via Symbolic Regression generate models composed of mathematical equations. Deep Learning models are based on the multiple layers of Neural Networks. In Section \ref{sec:ml}, we have discussed in details these different models' structures as well as the theoretical foundations of these algorithms.
 
-\vspace{-0.3cm}
 \subsection{Feature Selection}
 
-In order to empirically test the increased number of the features selected, we had to sort out the parameters based on their influence on the generated models. Thankfully, Random Forests based algorithms do provide that information.
+In order to empirically test the increased number of the features selected, we have used the feature importance information provided by the Random Forests based algorithm. 
 
 We have run leave-one-out cross-validation for every data-point in the bitstream dataset using the Random Forests based algorithm and have obtained the feature importance from each model. Afterwards, we have computed the overall feature importance by averaging the data we have collected from individual models. These averaged top 25 feature importance values are depicted in Figure \ref{fig:RFFeatures}. Here, many parameter names are intuitive and self explanatory. However, some other parameters might require additional discussion. 
 
@@ -726,7 +711,6 @@ We have run leave-one-out cross-validation for every data-point in the bitstream
 \includegraphics[width=3.2in]{./rffi.png}
 \caption{Feature importance for the Random Forests model.}
 \label{fig:RFFeatures}
-\vspace{-0.2cm}
 \end{figure}
 
 Some of these parameters are given below.
@@ -762,7 +746,6 @@ These findings point to the following conclusions:
 
 We have reorganized the dataset columns based on the findings from leave-one-out cross-validation by placing the most influential feature (VideoPacketLossRate) on the first column followed by the second most influential feature (pFrameCountDiff) in the second column and the rest of the columns sorted following the same logic. Sorting the dataset in this way has simplified our eventual Machine Learning models' source codes that we introduce in the following section. 
 
-\vspace{-0.2cm}
 \subsection{Decision Trees Based Models} 
 
 We have used the Python scikit-learn's implementation of Random Forests (RF) and Bagging (BG). We have generated Random Forest and Bagging models that used the bitstream dataset with 125 features. 
@@ -787,7 +770,6 @@ Batch Size & 4  \\ \hline
 Epoch Size & 440  \\ \hline
 \end{tabular}
 \end{table}
-\vspace{-0.5cm}
 
 \begin{table}
 \centering
@@ -815,15 +797,12 @@ Max Samples & 0.8 \\ \hline
 Jobs & 1 \\ \hline
 Random State & None \\ \hline
 \end{tabular}
-\vspace{-0.3cm}
 \end{table}
 
-\vspace{-0.2cm}
 \subsection{Deep Learning Based Models}
 
-We have generated the Deep Learning (DL) models using the Keras Deep Learning library that run on top of the Theano library. Similar to Decision Trees based models, we have initially tuned the DL model parameters using the 5 features listed in Table \ref{tab:dataset_media}. Eventually, we have obtained the DL model configuration listed in Table \ref{tab:bitstreamKeras} using only one hidden layer and have generated 125 models based on the increased number of features. For the DL models, we have run each model 10 times using the 4-fold cross validation and have reported statistical metrics averaged over these 10 runs.
+We have generated the Deep Learning (DL) models using the Keras Deep Learning library that run on top of the Theano library. Similar to Decision Trees based models, we have initially tuned the DL model parameters using the 5 features listed in Table \ref{tab:dataset_media}. Eventually, we have obtained the DL model configuration listed in Table \ref{tab:bitstreamKeras} using only one hidden layer and have generated 125 models based on the increased number of features. Note that eventhough our final DL model configuration does not consist of multiple hidden layers, we kept the naming as is as multiple hidden layers did not provide a superior performance. For the DL models, we have run each model 10 times using the 4-fold cross validation and have reported statistical metrics averaged over these 10 runs.
 
-\vspace{-0.2cm}
 \subsection{Genetic Programming Based Models}
 
 We have used the gplearn library to implement genetic Programming (GP) based models. The gplearn library is similar to scikit-learn fit/predict API and works with the existing scikit-learn pipeline. We have used the SymbolicRegressor with the configurations listed in the Table \ref{tab:bitstreamgplearn}. Similar to the DL models, we have run each model 10 times using the 4-Fold cross validation. 
@@ -839,7 +818,6 @@ Bagging & 0.9332 & 20 & 0.3547 & 11 & 0.1565 & 8 \\ \hline
 Deep Learning & 0.9130 & 7 & 0.3970 & 7 & 0.1711 & 16 \\ \hline
 Genetic Programming & 0.8928 & 7 & 0.4364 & 7 & 0.1787 & 7 \\ \hline
 \end{tabular}
-\vspace{-0.2cm}
 \end{table*}
 
 \begin{figure*}[ht!]
@@ -851,10 +829,8 @@ Genetic Programming & 0.8928 & 7 & 0.4364 & 7 & 0.1787 & 7 \\ \hline
 \includegraphics[width=3.6in]{./epsilonrmsezoom.png}
 \caption{Pearson Correlation, RMSE and RMSE$^*$ for RF, BG, DL and GP Models.}
 \label{fig:all}
-\vspace{-0.3cm}
 \end{figure*}
 
-\vspace{-0.2cm}
 \subsection{Results}
 
 Figure \ref{fig:all} depicts the Pearson correlation coefficient, RMSE and RMSE$^*$ values obtained for each algorithm. The values for 125 models are shown on the left side while a closer look at the metrics for models generated up to the top 25 features is shown on the right side. Table \ref{tab:maxminvalues} shows the maximum Pearson correlation, minimum RMSE and RMSE$^*$ values and the number of features used for each of these models with each algorithm.
@@ -877,23 +853,19 @@ In light of this information, let us revisit Figure \ref{fig:RFFeatures}. Both D
 
 \caption{Statistical Significance Test for RF, BG, DL and GP Models. The graphs on the left show the evolution of the P-value with increasing number of features for each algorithm and the graphs on the right focus on the first 25 features.}
 \label{fig:stats}
-\vspace{-0.3cm}
 \end{figure*}
 
 Since we have shuffled the order of the rows in the dataset each time before running the models, the results that we have obtained had different values depending on the training and tests sets selected and algorithm utilized. To reduce the variation in metrics, we have run each model consecutively 10 times (with the entire dataset shuffled before each run) and have taken the average of the measured statistical metrics in these 10 runs for every reported performance indicators (Figure \ref{fig:all}). Random Forest and Bagging based models have not only achieved the highest accuracy in terms of Pearson correlation and RMSE but are also more precise and have less variation in measured metrics.
 
 Another important and related dimension of the modeling is finding if two performance metrics are statistically significantly different. In Section \ref{subsec:Metrics} we have seen that ITU-T P.1401 \cite{itut2012P.1401} recommends computing the significance of the difference between correlation coefficients using the  Fisher-z transformation. In order to achieve that, we have conducted two statistical test for each individual model. First, for each algorithm, we have found the best performing model in terms of Pearson correlation coefficient and then we have compared the other 124 models based on the same algorithm with that selected best performing model. Second, we have found that the globally best performing model in terms of Pearson correlation is the Bagging model using the top 20 features, and we have compared it with the all of other models and reported the P-values \cite{sellke2001calibration}. These computations are depicted in the Figure \ref{fig:stats} where the graphs on the left show the evolution of the P-value with increasing number of features for each algorithm while graphs on the right focus on the first 25 features. The significance level $\alpha$ for a given hypothesis test is a value for which a P-value less than or equal to $\alpha$ is considered statistically significant \cite{sellke2001calibration}. Typical values for $\alpha$ are 0.1, 0.05 and 0.01. In the figures, we have shown the standard cutoff value of P at 0.05. When computing these values, we have used the sample size as 160 even though the Pearson Correlation coefficients values reported are the average of 10 runs. In general, the difference between two correlation coefficient tend to be statistically more significant with the increased sample size. Therefore, the results shown in the Figure \ref{fig:stats} should be considered with the given sample size in mind.
 
-In our experiments, we have observed that Decision Trees based models perform better in accuracy and precision and also required less effort to generate. Superior performance of decision trees based approach is in line with the work of other researchers such as \cite{hameed2016decision}. Random Forests algorithms also provide feature importance ranking which was invaluable for feature selection.
+In our experiments, we have observed that Decision Trees based models perform better in accuracy and precision and also required less effort to generate. Random Forests algorithms also provide feature importance ranking which was invaluable for feature selection.
 
-\vspace{-0.3cm}
 \section{Discussion}
 
 The standardized models for IPTV \cite{itut2015G.1071} \cite{itut2012P.1201} and video telephony \cite{itut2012G.1070} aim to provide a model for as many use cases as possible. They typically utilize a very small subset of the features available such as packet loss percentage, frame rate and compression rate, and content complexity for bitstream models. In our earlier work \cite{demirbilek2017parametricmodels} we have discussed these standardized models in details. In this research, we have generated audiovisual perceived quality estimation models using both the traditional small set of features used in standardized models and the correlated data that we have extracted from the videos included in the publicly available dataset. One of the main difference between these standard models and the approach we have taken here is taking advantage of the correlated data. Based on the results that we have obtained in this research as well as results we have obtained in our earlier work, we know that extracting additional correlated data from the dataset helps us to generate more accurate models. However, this correlated data depends on various factors such as the audio and video codec used, the tool used to extract the correlated data and number of features. For similar research, we recommend following the approach we have taken here rather than pinpointing specific parameters. In our previous work \cite{demirbilek2017parametricmodels}, we have also tested the Random Forest based models on the University of Plymouth \cite{goudarzi2010audiovisual}, TUM 1080p50 \cite{keimel2012tum} and VQEG datasets \cite{pinson2012influence} and achieved the comparable results with the original studies on these datasets.
 
 In this research, we have chosen media and channel encoding parameters that reflects contemporary real- time configurations for video frame rate, video quantization, noise reduction parameters and network packet loss rate. Therefore, the models we have developed in our research are comparable to the ITU-T G.1070 \cite{itut2012G.1070}, G.1071 \cite{itut2015G.1071} and P.1201 \cite{itut2012P.1201} standard models. Running first two models on our dataset was not possible as these models have limited coverage and do not support the AMR-WB audio codec combined with H.264 video codec at 720p video resolution. The ITU-T G.1071 model supports AMR codec only in low resolutions up to HVGA (480 x 320) resolution. The ITU-T G.1070 model provides model constants, m, only for 2.1 and 4.2-inch video display sizes and also does not provide speech coding-distortion and packet-loss-robustness constants for AMR codec. Comparison with the ITU-T P.1201 model is not given as it does not support the AMR-WB codec.
-
-\vspace{-0.3cm}
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -907,8 +879,6 @@ The bitstream version of the INRS audiovisual quality dataset consists of 125 fe
 Random Forests and Bagging based models perform best using around the top 20 features while Deep Learning and Genetic Programming based models reach to their maximum with the 7 top features in terms of RMSE values and Pearson Correlation coefficient. We have additionally computed the RMSE$^*$ values and have computed the significance of the difference between correlation coefficients using the Fisher-z transformation. RMSE$^*$ values showed that, although all models perform very similarly with the top 2 features, increasing the number of the features makes a difference. Random Forests based models overall perform best followed by the Bagging, Deep Learning and then Genetic Programming models respectively. It is also important to note that, generating decision trees based models require significantly less effort and less time due to a low number of configuration parameters they require. On the other hand, Genetic Programming models required the most effort to tune, the most computing resources to deploy and the longest training time. 
 
 Overall we conclude that computing the bitstream information is worth the effort it takes to generate and helps to build more accurate models for real-time communications. However, it is useful only for the deployment of the right algorithms with the carefully selected subset of the features. Our studies have proved that Decision Trees based algorithms are well suited to the No-Reference parametric models as well as to the Reduced-Reference bitstream models.
-
-\vspace{-0.2cm}
 
 
 % An example of a floating figure using the graphicx package.
